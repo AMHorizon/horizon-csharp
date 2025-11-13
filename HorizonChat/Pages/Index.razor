@@ -1,9 +1,55 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Welcome to Horizon Chat</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="welcome-container">
+    <h1>Welcome to Horizon Chat</h1>
+    <p>Please enter your username to get started</p>
+    
+    <div class="username-input">
+        <input type="text" 
+               class="form-control" 
+               placeholder="Enter your username (or leave blank for random)" 
+               @bind="username" 
+               @onkeypress="HandleKeyPress" />
+        <button class="btn btn-primary mt-3" @onclick="EnterChat">
+            Enter Chat
+        </button>
+    </div>
+</div>
 
-Welcome to your new app.
+@code {
+    private string username = "";
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    private void EnterChat()
+    {
+        if (string.IsNullOrWhiteSpace(username))
+        {
+            username = GenerateGuestUsername();
+        }
+        
+        NavigationManager.NavigateTo($"/chat?username={Uri.EscapeDataString(username)}");
+    }
+
+    private string GenerateGuestUsername()
+    {
+        var adjectives = new[] { "Happy", "Clever", "Swift", "Bright", "Cool", "Bold", "Calm", "Wise", "Lucky", "Brave" };
+        var nouns = new[] { "Panda", "Tiger", "Eagle", "Dolphin", "Fox", "Wolf", "Lion", "Bear", "Hawk", "Falcon" };
+        
+        var random = new Random();
+        var adjective = adjectives[random.Next(adjectives.Length)];
+        var noun = nouns[random.Next(nouns.Length)];
+        var number = random.Next(100, 999);
+        
+        return $"{adjective}{noun}{number}";
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            EnterChat();
+        }
+    }
+}
