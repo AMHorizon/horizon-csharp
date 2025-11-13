@@ -37,7 +37,7 @@
         var adjectives = new[] { "Happy", "Clever", "Swift", "Bright", "Cool", "Bold", "Calm", "Wise", "Lucky", "Brave" };
         var nouns = new[] { "Panda", "Tiger", "Eagle", "Dolphin", "Fox", "Wolf", "Lion", "Bear", "Hawk", "Falcon" };
         
-        var random = new Random();
+        var random = Random.Shared;
         var adjective = adjectives[random.Next(adjectives.Length)];
         var noun = nouns[random.Next(nouns.Length)];
         var number = random.Next(100, 999);
