@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddSingleton<WebSocketHandler>();
 
 var app = builder.Build();
 
@@ -27,9 +28,14 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseWebSockets();
-app.UseMiddleware<WebSocketMiddleware>();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+// WebSocket endpoint
+app.Map("/ws", async (HttpContext context, WebSocketHandler handler) =>
+{
+    await handler.HandleWebSocketAsync(context);
+});
 
 app.Run();
