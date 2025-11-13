@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonChat", "HorizonChat\HorizonChat.csproj", "{CE5FC771-FB35-B320-1275-E80F4EDC398B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE5FC771-FB35-B320-1275-E80F4EDC398B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5FC771-FB35-B320-1275-E80F4EDC398B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5FC771-FB35-B320-1275-E80F4EDC398B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5FC771-FB35-B320-1275-E80F4EDC398B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACAAFE4E-5BD4-4FEC-A157-F788EEC61B0F}
+	EndGlobalSection
+EndGlobal
